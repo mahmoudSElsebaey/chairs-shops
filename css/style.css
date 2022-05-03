@@ -40,11 +40,11 @@ ul {
 }
 
 .header-sec nav {
-    width: 60%;
+    width: 63%;
     height: 40%;
     float: left;
     margin-top: 20px;
-    margin-left: 15px;
+    margin-left: 10px;
     /* border: 1px solid brown; */
 }
 
@@ -53,56 +53,117 @@ ul {
     display: flex;
     justify-content: space-between;
     height: 100%;
+    margin-top: 10px;
 }
 
 .header-sec nav li {
     text-align: center;
-    padding: 10px;
-    line-height: 15px;
-    position: relative;
-
+    /* padding: 10px; */
+    line-height: 20px;
+    /* border: 1px solid red; */
 }
 
-.header-sec nav a {
+.header-sec nav .nav-link,
+.header-sec nav .table-title-link,
+.header-sec nav .table-link {
+    width: 100%;
+    height: 100%;
+    padding: 8px 13px;
     color: rgb(123, 82, 68);
     font-weight: 600;
+    position: relative;
 }
 
-
-.header-sec nav li::after {
+/************ After & Before ***********/
+.header-sec nav .nav-link::after {
     content: '';
     position: absolute;
-    top: 0;
+    top: 0%;
     left: 0;
-    height: 0;
-    width: 0;
+    height: 100%;
+    transform: scaleY(-1);
+    width: 100%;
     opacity: 0;
-    transition: .5s;
-    border-top: 2px solid rgb(123, 82, 68);
+    transition: .3s;
     border-left: 2px solid rgb(123, 82, 68);
-}
-
-.header-sec nav li::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 0;
-    width: 0;
-    opacity: 0;
-    transition: .5s;
-    border-bottom: 2px solid rgb(123, 82, 68);
     border-right: 2px solid rgb(123, 82, 68);
 }
 
-.header-sec nav li:hover::after,
-.header-sec nav li:hover::before {
-    width: 96%;
-    height: 95%;
+.header-sec nav .nav-link:hover::after {
+    height: 109%;
+    width: 100%;
+    transform: scaleY(1);
     opacity: 1;
     cursor: pointer;
 }
 
+.header-sec nav .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    opacity: 0;
+    transition: .2s;
+    border-top: 2px solid rgb(123, 82, 68);
+    border-bottom: 2px solid rgb(123, 82, 68);
+}
+
+.header-sec nav .nav-link:hover::before {
+    width: 103.5%;
+    height: 100%;
+    opacity: 1;
+    cursor: pointer;
+    transition-delay: .3s;
+}
+
+/************** Dropdown ***********/
+
+.dropdown-content {
+    width: 400px;
+    height: 180px;
+    position: absolute;
+    border: 2px solid #7b5244;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px black;
+    margin-top: 20px;
+    padding: 10px;
+    transform: scale(0);
+}
+
+.drop-table {
+    width: 100%;
+    line-height: 30px;
+    text-align: left;
+}
+
+.header-sec nav .table-title-link {
+    padding-left: 15px;
+    /* border-bottom: 1px dotted #7b5244; */
+}
+
+.header-sec nav .table-title-link,
+.header-sec nav .table-link {
+    font-weight: normal;
+
+}
+
+.drop-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.drop-list li a {
+    line-height: 1.7;
+}
+
+.drop-item:hover .dropdown-content {
+    transform: scale(1);
+    transition: .5s;
+}
+
+/**************** header icons ***********/
 .header-sec .icons {
     width: 20%;
     height: 100%;
@@ -462,7 +523,8 @@ ul {
     margin-right: 5px;
     cursor: pointer;
 }
-.product-item:hover .overlay{
+
+.product-item:hover .overlay {
     transform: scaleX(1);
 }
 
